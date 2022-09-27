@@ -1,5 +1,8 @@
 <script>
-  import { AutoMobilItems, selectedAuto } from "./../store/store";
+  import { AutoMobilItems } from "./../store/store";
+
+  let selected = Number(new URLSearchParams(window.location.search).get("index"));
+  
 </script>
 
 <h2>Detail Automobilu</h2>
@@ -8,28 +11,28 @@
   <tr>
     <td>značka</td>
     <td>
-      <span>{$AutoMobilItems[$selectedAuto.selected].brand}</span>
+      <span>{$AutoMobilItems[selected].brand}</span>
     </td>
   </tr>
   <tr>
     <td>model</td>
     <td>
-      <span>{$AutoMobilItems[$selectedAuto.selected].model}</span>
+      <span>{$AutoMobilItems[selected].model}</span>
     </td>
   </tr>
   <tr>
     <td>rok výroby</td>
     <td>
-      <span>{$AutoMobilItems[$selectedAuto.selected].yearOfManufacture}</span>
+      <span>{$AutoMobilItems[selected].yearOfManufacture}</span>
     </td>
   </tr>
 </table>
 
-{#if $AutoMobilItems[$selectedAuto.selected].image}
+{#if $AutoMobilItems[selected].image}
   <div class="image-wrapper">
     <img
       class="image-auto"
-      src={$AutoMobilItems[$selectedAuto.selected].image}
+      src={$AutoMobilItems[selected].image}
       alt="d"
     />
   </div>

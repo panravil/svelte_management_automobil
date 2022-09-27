@@ -1,14 +1,21 @@
 <script>
-  import { AutoMobilItems, selectedAuto } from "./../store/store";
+  import { AutoMobilItems } from "./../store/store";
   import { fade, scale } from "svelte/transition";
+
+  let selected = Number(new URLSearchParams(window.location.search).get("index"));
+  
+  let cachedAutoList = localStorage.getItem("data");
+  if (cachedAutoList) $AutoMobilItems = JSON.parse(cachedAutoList);
+
 
   function removeFromList(i) {
     $AutoMobilItems.splice(i, 1);
     $AutoMobilItems = $AutoMobilItems;
   }
   function onSelectAutomobil(i) {
-    $selectedAuto = { selected: i };
-    console.log("selectedAuto", $selectedAuto);
+    console.log('selected', selected);
+    localStorage.setItem("data", JSON.stringify($AutoMobilItems))
+    window.location.href = `/?index=${i}`;
   }
 </script>
 
@@ -16,7 +23,7 @@
 {#each $AutoMobilItems as item, index}
   <div class="Items" in:scale out:fade={{ duration: 500 }}>
     <span
-      class={index === $selectedAuto.selected ? "selected" : ""}
+      class={index === selected ? "selected" : ""}
       on:click={() => onSelectAutomobil(index)}
     >
       {item.brand}

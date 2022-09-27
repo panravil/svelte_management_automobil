@@ -1,5 +1,5 @@
 <script>
-  import { AutoMobilItems, selectedAuto } from "./../store/store";
+  import { AutoMobilItems } from "./../store/store";
   import { onMount } from "svelte";
 
   let brand = "";
@@ -33,7 +33,9 @@
     yearOfManufacture = '';
     imageAutomobilu = '';
 
-    $selectedAuto.selected = $AutoMobilItems.length - 1;
+    localStorage.setItem("data", JSON.stringify($AutoMobilItems));
+
+    window.location.href = `/?index=${$AutoMobilItems.length - 1}`;
   }
 </script>
 
