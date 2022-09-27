@@ -38,5 +38,6 @@
     width: 60%;
     border: 1px solid;
     margin-top: -1px;
+    padding: 0 20px;
   }
 </style>
