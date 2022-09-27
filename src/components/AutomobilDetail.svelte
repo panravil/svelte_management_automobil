@@ -1,7 +1,5 @@
 <script>
   import { AutoMobilItems, selectedAuto } from "./../store/store";
-
-  let detailAutomobilu = $AutoMobilItems[$selectedAuto.selected];
 </script>
 
 <h2>Detail Automobilu</h2>
@@ -10,19 +8,19 @@
   <tr>
     <td>značka</td>
     <td>
-      <span>{detailAutomobilu.brand}</span>
+      <span>{$AutoMobilItems[$selectedAuto.selected].brand}</span>
     </td>
   </tr>
   <tr>
     <td>model</td>
     <td>
-      <span>{detailAutomobilu.model}</span>
+      <span>{$AutoMobilItems[$selectedAuto.selected].model}</span>
     </td>
   </tr>
   <tr>
     <td>rok výroby</td>
     <td>
-      <span>{detailAutomobilu.yearOfManufacture}</span>
+      <span>{$AutoMobilItems[$selectedAuto.selected].yearOfManufacture}</span>
     </td>
   </tr>
 </table>
@@ -38,5 +36,9 @@
   table.detail tr td {
     border: 1px solid;
     padding: 4px;
+  }
+
+  table.detail tr td:first-child {
+    width: 40%;
   }
 </style>
