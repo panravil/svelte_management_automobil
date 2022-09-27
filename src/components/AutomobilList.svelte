@@ -8,7 +8,6 @@
   }
   function onSelectAutomobil(i) {
     $selectedAuto = { selected: i };
-    $selectedAuto = $selectedAuto;
     console.log("selectedAuto", $selectedAuto);
   }
 </script>

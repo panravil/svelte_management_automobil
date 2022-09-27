@@ -1,5 +1,5 @@
 <script>
-  import { AutoMobilItems } from "./../store/store";
+  import { AutoMobilItems, selectedAuto } from "./../store/store";
   import { onMount } from "svelte";
 
   let brand = "";
@@ -32,6 +32,8 @@
     model = '';
     yearOfManufacture = '';
     imageAutomobilu = '';
+
+    $selectedAuto.selected = $AutoMobilItems.length - 1;
   }
 </script>
 
